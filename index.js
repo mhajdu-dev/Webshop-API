@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
 
 app.get('/api/v1', (req, res) => {
     console.log(req.cookies)
-    res.send('Hello e-commerce!')
+    res.send('Hello e-commerce cookies!')
 })
 
 app.use('/api/v1/auth', authRouter)
