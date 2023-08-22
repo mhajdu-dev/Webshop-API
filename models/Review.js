@@ -33,14 +33,18 @@ const ReviewSchema = mongoose.Schema(
 );
 ReviewSchema.index({ product: 1, user: 1 }, { unique: true });
 
+ReviewSchema.statics.calculateAverageRating = async function (productId) {
+    console.log(productId)
+}
+
 ReviewSchema.post('save', async function () {
-    console.log('post save hook called')
+    await this.constructor.calculateAverageRating(this.product)
 })
 
 ReviewSchema.post('deleteOne',
     { document: true, query: false },
     async function () {
-        console.log('post remove hook called')
+        await this.constructor.calculateAverageRating(this.product)
     }
 )
 
