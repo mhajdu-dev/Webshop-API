@@ -33,4 +33,15 @@ const ReviewSchema = mongoose.Schema(
 );
 ReviewSchema.index({ product: 1, user: 1 }, { unique: true });
 
+ReviewSchema.post('save', async function () {
+    console.log('post save hook called')
+})
+
+ReviewSchema.post('deleteOne',
+    { document: true, query: false },
+    async function () {
+        console.log('post remove hook called')
+    }
+)
+
 module.exports = mongoose.model('Review', ReviewSchema)
