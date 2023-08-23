@@ -10,7 +10,7 @@ const getSingleOrder = async (req, res) => {
     res.send('getSingleOrder')
 }
 
-const getCurrentUserOrder = async (req, res) => {
+const getCurrentUserOrders = async (req, res) => {
     res.send('getCurrentUserOrder')
 }
 
@@ -22,6 +22,6 @@ module.exports = {
     createOrder,
     getAllOrders,
     getSingleOrder,
-    getCurrentUserOrder,
+    getCurrentUserOrders,
     updateOrder
 }
